@@ -29,4 +29,13 @@ public class TestQuantityMeasurement {
     public void givenNullFeetValue_ShouldReturnFalse() {
         Assert.assertFalse(feetMeasurement.equals(null));
     }
+
+    /**
+     * Reference Check
+     */
+    @Test
+    public void givenReferenceObject_WhenEqual_ShouldReturnTrue() {
+        FeetMeasurement feetMeasurement2 = new FeetMeasurement();
+        Assert.assertEquals(feetMeasurement, feetMeasurement2);
+    }
 }
