@@ -12,6 +12,9 @@ public class TestQuantityMeasurement {
         feetMeasurement = new FeetMeasurement();
     }
 
+    /**
+     * Given 0 Feet and 0 Feet Should Return equal
+     */
     @Test
     public void givenZeroFeetAndZeroFeetValue_WhenEqual_ShouldReturnTrue() {
         double value1 = feetMeasurement.getFeet(0.0);
@@ -19,4 +22,11 @@ public class TestQuantityMeasurement {
         Assert.assertEquals(value1, value2, 0.0);
     }
 
+    /**
+     * Null Check
+     */
+    @Test
+    public void givenNullFeetValue_ShouldReturnFalse() {
+        Assert.assertFalse(feetMeasurement.equals(null));
+    }
 }

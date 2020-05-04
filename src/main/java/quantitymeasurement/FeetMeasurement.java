@@ -7,6 +7,11 @@ public class FeetMeasurement {
         return feet;
     }
 
+    /**
+     * Object Equal Method
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if(o == null) return false;
@@ -15,10 +20,4 @@ public class FeetMeasurement {
         FeetMeasurement that = (FeetMeasurement) o;
         return Double.compare(that.feet, feet) == 0;
     }
-
-    @Override
-    public int hashCode() {
-        return 0;
-    }
-
 }
