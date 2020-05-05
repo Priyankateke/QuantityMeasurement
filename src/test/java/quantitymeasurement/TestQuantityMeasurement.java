@@ -17,8 +17,8 @@ public class TestQuantityMeasurement {
      */
     @Test
     public void givenZeroFeetAndZeroFeetValue_WhenEqual_ShouldReturnTrue() {
-        double value1 = quantityMeasurement.unitConversion(Units.FEET,0.0);
-        double value2 = quantityMeasurement.unitConversion(Units.FEET,0.0);
+        double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH,0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH,0.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
 
@@ -49,8 +49,8 @@ public class TestQuantityMeasurement {
      */
     @Test
     public void givenTwoDifferentFeetValues_WhenEqual_ShouldReturnFalse() {
-        double value1 = quantityMeasurement.unitConversion(Units.FEET,0.0);
-        double value2 = quantityMeasurement.unitConversion(Units.FEET,1.0);
+        double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH,0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH,1.0);
         Assert.assertNotEquals(value1, value2, 0.0);
     }
 
@@ -59,8 +59,8 @@ public class TestQuantityMeasurement {
      */
     @Test
     public void givenTwoEqualFeetValues_WhenEqual_ShouldReturnTrue() {
-        double value1 = quantityMeasurement.unitConversion(Units.FEET,1.0);
-        double value2 = quantityMeasurement.unitConversion(Units.FEET,1.0);
+        double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH,1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH,1.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
 
@@ -117,7 +117,7 @@ public class TestQuantityMeasurement {
     @Test
     public void giveZeroInchAndZeroFeet_WhenZero_ShouldReturnTrue() {
         double inchValue = quantityMeasurement.unitConversion(Units.INCH, 0.0);
-        double feetValue = quantityMeasurement.unitConversion(Units.FEET, 0.0);
+        double feetValue = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 0.0);
         Assert.assertEquals(feetValue, inchValue, 0.0);
     }
 
@@ -126,7 +126,7 @@ public class TestQuantityMeasurement {
      */
     @Test
     public void givenOneFeetAndOneInch_WhenEqualInLength_ShouldReturnTrue() {
-        double feetValue = quantityMeasurement.unitConversion(Units.FEET, 1.0);
+        double feetValue = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
         double inchValue = quantityMeasurement.unitConversion(Units.INCH, 1.0);
         Assert.assertNotEquals(feetValue, inchValue, 0.0);
     }
@@ -137,7 +137,7 @@ public class TestQuantityMeasurement {
     @Test
     public void givenOneInchAndOneFeet_WhenEqualInLength_ShouldReturnFalse() {
         double feetValue = quantityMeasurement.unitConversion(Units.INCH, 1.0);
-        double inchValue = quantityMeasurement.unitConversion(Units.FEET, 1.0);
+        double inchValue = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
         Assert.assertNotEquals(feetValue, inchValue, 0.0);
     }
 
@@ -146,8 +146,27 @@ public class TestQuantityMeasurement {
      */
     @Test
     public void givenOneFeetAndTwelveInch_ShouldReturnTrue() {
-        double inchValue = quantityMeasurement.unitConversion(Units.FEET, 1.0);
+        double inchValue = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
         Assert.assertEquals(12, inchValue, 0.0);
     }
 
+    /**
+     *  Given 12In = 1Ft
+     */
+    @Test
+    public void givenTwelveFeetAndOneInch_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.INCH, 12.0);
+        double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given 3Ft = 1 Yard
+     */
+    @Test
+    public void givenThreeFeetAndOneYard_WhenCompare_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 3.0);
+        double value2 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 1.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }
