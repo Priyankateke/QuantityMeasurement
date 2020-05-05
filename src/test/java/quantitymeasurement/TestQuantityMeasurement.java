@@ -181,7 +181,7 @@ public class TestQuantityMeasurement {
     }
 
     /**
-     *  given 1 Inch != 1 Yard
+     *  Given 1 Inch != 1 Yard
      */
     @Test
     public void givenOneInchAndOneYard_WhenEqualInLength_ShouldReturnFalse() {
@@ -190,4 +190,13 @@ public class TestQuantityMeasurement {
         Assert.assertNotEquals(value1, value2, 0.0);
     }
 
+    /**
+     * Given 1 Yard = 36 Inch
+     */
+    @Test
+    public void givenOneYardAndThirtySixInch_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.INCH, 36.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }
