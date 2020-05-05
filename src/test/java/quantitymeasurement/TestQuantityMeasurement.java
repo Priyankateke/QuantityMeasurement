@@ -317,7 +317,7 @@ public class TestQuantityMeasurement {
     public void givenTwoInchAndTwoInch_WhenAdded_ShouldReturnFourInch() {
         double value1 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
         double value2 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
-        Assert.assertEquals(4,value1+value2, 0.0);
+        Assert.assertEquals(4,value1 + value2, 0.0);
     }
 
     /**
@@ -327,7 +327,7 @@ public class TestQuantityMeasurement {
     public void givenOneFeetAndTwoInch_WhenAdded_ShouldReturnFourteenInch() {
         double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
         double value2 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
-        Assert.assertEquals(14,value1+value2, 0.0);
+        Assert.assertEquals(14,value1 + value2, 0.0);
     }
 
     /**
@@ -337,7 +337,7 @@ public class TestQuantityMeasurement {
     public void givenOneFeetAndOneFeet_WhenAdded_ShouldReturnTwentyFourInch() {
         double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
         double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
-        Assert.assertEquals(24,value1+value2, 0.0);
+        Assert.assertEquals(24,value1 + value2, 0.0);
     }
 
     /**
@@ -347,6 +347,130 @@ public class TestQuantityMeasurement {
     public void givenTwoInchAndTwoAndHalfCentimeter_WhenAdded_ShouldReturnThreeInch() {
         double value1 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
         double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 2.5);
-        Assert.assertEquals(3,value1+value2, 0.0);
+        Assert.assertEquals(3,value1 + value2, 0.0);
+    }
+
+    //TestCases for equality check on Gallon
+
+    /**
+     * Given Zero Gallon and Zero Gallon Value When Equal should Return True
+     */
+    @Test
+    public void givenZeroGallonAndZeroGallonValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.GALLON_TO_LITRE, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.GALLON_TO_LITRE, 0.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two Different Gallon Values When Not Equal Should Return False
+     */
+    @Test
+    public void givenTwoDifferentGallonValues_WhenNotEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.GALLON_TO_LITRE, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.GALLON_TO_LITRE, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Null Gallon Value Should Return False
+     */
+    @Test
+    public void givenNullGallonValue_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.unitConversion(Units.GALLON_TO_LITRE, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
+    }
+
+    //TestCases for equality check on Litre
+
+    /**
+     * Given 0 Litre And 0 Litre Value When Equal Should Return True
+     */
+    @Test
+    public void givenZeroLitreAndZeroLitreValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.LITRE, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.LITRE, 0.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two Different Litre Values When Not Equal Should Return False
+     */
+    @Test
+    public void givenTwoDifferentLitreValues_WhenNotEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.LITRE, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.LITRE, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Null Litre Value Should Return False
+     */
+    @Test
+    public void givenNullLitreValue_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.unitConversion(Units.LITRE, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
+    }
+
+    //TestCases for equality check on MilliLitre
+
+    /**
+     * Given 0 Millilitre and 0 Millilitre Value When Equal Should Return True
+     */
+    @Test
+    public void givenZeroMillilitreAndZeroMillilitreValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, 0.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two different Millilitre Values When Not Equal Should Return False
+     */
+    @Test
+    public void givenTwoDifferentMillilitreValues_WhenNotEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Null Millilitre Value Should Return False
+     */
+    @Test
+    public void givenNullMillilitreValue_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
+    }
+
+    //TestCases for equality check on Litre,MilliLitre and Gallon
+
+    /**
+     * Given : 1 Gallon = 3.78 Litres
+     */
+    @Test
+    public void givenVolumeInGallonAndLitre_WhenEqualInVolume_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.GALLON_TO_LITRE, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.LITRE, 3.78);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given : 1 Litre = 1000 ml
+     */
+    @Test
+    public void givenOneLitreAndOneThousandMillilitreValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.LITRE, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, 1000.0);
+        Assert.assertEquals(value1, value2, 0.0);
     }
 }
