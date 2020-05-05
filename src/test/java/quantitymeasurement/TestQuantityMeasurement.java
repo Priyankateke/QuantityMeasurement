@@ -199,4 +199,14 @@ public class TestQuantityMeasurement {
         double value2 = quantityMeasurement.unitConversion(Units.INCH, 36.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
+    /**
+     * Given 36 Inch = 1 Yard
+     */
+    @Test
+    public void givenThirtySixInchAndOneYard_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.INCH, 36.0);
+        double value2 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 1.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }
