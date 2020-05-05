@@ -110,4 +110,14 @@ public class TestQuantityMeasurement {
         double value2 = quantityMeasurement.unitConversion(Units.INCH,1.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
+    /**
+     * Given 0 Feet and 0 Inch Should Return equal
+     */
+    @Test
+    public void giveZeroInchAndZeroFeet_WhenZero_ShouldReturnTrue() {
+        double inchValue = quantityMeasurement.unitConversion(Units.INCH, 0.0);
+        double feetValue = quantityMeasurement.unitConversion(Units.FEET, 0.0);
+        Assert.assertEquals(feetValue, inchValue, 0.0);
+    }
 }
