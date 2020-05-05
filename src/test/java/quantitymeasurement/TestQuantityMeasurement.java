@@ -12,8 +12,10 @@ public class TestQuantityMeasurement {
         quantityMeasurement = new QuantityMeasurement();
     }
 
+    //Test Cases For Feet
+
     /**
-     * Given 0 Feet and 0 Feet Should Return equal
+     * Given 0 Feet and 0 Feet When Equal Should Return True
      */
     @Test
     public void givenZeroFeetAndZeroFeetValue_WhenEqual_ShouldReturnTrue() {
@@ -27,7 +29,11 @@ public class TestQuantityMeasurement {
      */
     @Test
     public void givenNullFeetValue_ShouldReturnFalse() {
-        Assert.assertFalse(quantityMeasurement.equals(null));
+        try {
+            quantityMeasurement.unitConversion(Units.FEET_TO_INCH, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
     }
 
     /**
@@ -45,10 +51,10 @@ public class TestQuantityMeasurement {
     }
 
     /**
-     * Given Two Different Feet Values When Equal Should Return False
+     * Given Two Different Feet Values When Not Equal Should Return False
      */
     @Test
-    public void givenTwoDifferentFeetValues_WhenEqual_ShouldReturnFalse() {
+    public void givenTwoDifferentFeetValues_WhenNotEqual_ShouldReturnFalse() {
         double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH,0.0);
         double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH,1.0);
         Assert.assertNotEquals(value1, value2, 0.0);
@@ -63,6 +69,8 @@ public class TestQuantityMeasurement {
         double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH,1.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
+    //Test cases For Inch
 
     /**
      * Given 0 Inch and 0 Inch Should Return equal
@@ -79,7 +87,11 @@ public class TestQuantityMeasurement {
      */
     @Test
     public void givenNullInchValue_ShouldReturnFalse() {
-        Assert.assertFalse(quantityMeasurement.equals(null));
+        try {
+            quantityMeasurement.unitConversion(Units.INCH, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
     }
 
     /**
@@ -92,10 +104,10 @@ public class TestQuantityMeasurement {
     }
 
     /**
-     * Given Two Different Inch Values When Equal Should Return False
+     * Given Two Different Inch Values When Not Equal Should Return False
      */
     @Test
-    public void givenTwoDifferentInchValues_WhenEqual_ShouldReturnFalse() {
+    public void givenTwoDifferentInchValues_WhenNotEqual_ShouldReturnFalse() {
         double value1 = quantityMeasurement.unitConversion(Units.INCH,0.0);
         double value2 = quantityMeasurement.unitConversion(Units.INCH,1.0);
         Assert.assertNotEquals(value1, value2, 0.0);
@@ -160,6 +172,40 @@ public class TestQuantityMeasurement {
         Assert.assertEquals(value1, value2, 0.0);
     }
 
+    //Test Cases For Yard
+
+    /**
+     * Given 0 Yard and 0 Yard When Equal Should Return True
+     */
+    @Test
+    public void givenZeroYardAndZeroYardValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 0.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two Different Yard Values When Not Equal Should Return False
+     */
+    @Test
+    public void givenTwoDifferentYardValues_WhenNotEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Null Yard Value Should Return False
+     */
+    @Test
+    public void givenNullYardValue_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.unitConversion(Units.YARD_TO_INCH, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
+    }
+
     /**
      * Given 3 Feet = 1 Yard
      */
@@ -217,6 +263,48 @@ public class TestQuantityMeasurement {
     public void givenOneYardAndThreeFeet_WhenEqual_ShouldReturnTrue() {
         double value1 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 1.0);
         double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 3.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given 0 Centimeter and 0 Centimeter When Equal Should Return True
+     */
+    @Test
+    public void givenZeroCentimeterAndZeroCentimeterValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 0.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two Different Centimeter Values When Not Equal Should Return False
+     */
+    @Test
+    public void givenTwoDifferentCentimeterValues_WhenNotEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Null Centimeter Should Return False
+     */
+    @Test
+    public void givenNullCentimeterValue_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.unitConversion(Units.CM_TO_INCH, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
+    }
+
+    /**
+     * Given 2 Inch = 5 Centimeter
+     */
+    @Test
+    public void givenTwoInchAndFiveCentimeter_WhenCompare_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 5.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
 }
