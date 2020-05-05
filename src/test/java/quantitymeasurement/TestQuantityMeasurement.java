@@ -161,7 +161,7 @@ public class TestQuantityMeasurement {
     }
 
     /**
-     * Given 3Ft = 1 Yard
+     * Given 3 Feet = 1 Yard
      */
     @Test
     public void givenThreeFeetAndOneYard_WhenCompare_ShouldReturnTrue() {
@@ -169,4 +169,16 @@ public class TestQuantityMeasurement {
         double value2 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 1.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
+    /**
+     * Given 1 Ft != 1 Yard
+     */
+    @Test
+    public void givenOneFeetAndOneYard_WhenEqualInLength_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+
 }
