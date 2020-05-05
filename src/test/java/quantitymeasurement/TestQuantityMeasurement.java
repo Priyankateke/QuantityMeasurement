@@ -81,4 +81,13 @@ public class TestQuantityMeasurement {
     public void givenNullInchValue_ShouldReturnFalse() {
         Assert.assertFalse(quantityMeasurement.equals(null));
     }
+
+    /**
+     * Reference Check for Inch
+     */
+    @Test
+    public void givenReferenceObjectOfInch_WhenEqual_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurement2 = new QuantityMeasurement();
+        Assert.assertEquals(quantityMeasurement, quantityMeasurement2);
+    }
 }
