@@ -140,4 +140,14 @@ public class TestQuantityMeasurement {
         double inchValue = quantityMeasurement.unitConversion(Units.FEET, 1.0);
         Assert.assertNotEquals(feetValue, inchValue, 0.0);
     }
+
+    /**
+     * Given 1 ft = 12 in
+     */
+    @Test
+    public void givenOneFeetAndTwelveInch_ShouldReturnTrue() {
+        double inchValue = quantityMeasurement.unitConversion(Units.FEET, 1.0);
+        Assert.assertEquals(12, inchValue, 0.0);
+    }
+
 }
