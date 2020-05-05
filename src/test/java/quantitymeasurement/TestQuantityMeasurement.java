@@ -126,6 +126,16 @@ public class TestQuantityMeasurement {
      */
     @Test
     public void givenOneFeetAndOneInch_WhenEqualInLength_ShouldReturnTrue() {
+        double feetValue = quantityMeasurement.unitConversion(Units.FEET, 1.0);
+        double inchValue = quantityMeasurement.unitConversion(Units.INCH, 1.0);
+        Assert.assertNotEquals(feetValue, inchValue, 0.0);
+    }
+
+    /**
+     * Given 1Inch != 1Feet
+     */
+    @Test
+    public void givenOneInchAndOneFeet_WhenEqualInLength_ShouldReturnFalse() {
         double feetValue = quantityMeasurement.unitConversion(Units.INCH, 1.0);
         double inchValue = quantityMeasurement.unitConversion(Units.FEET, 1.0);
         Assert.assertNotEquals(feetValue, inchValue, 0.0);
