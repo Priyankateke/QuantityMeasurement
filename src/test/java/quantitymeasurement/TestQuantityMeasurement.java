@@ -90,4 +90,24 @@ public class TestQuantityMeasurement {
         QuantityMeasurement quantityMeasurement2 = new QuantityMeasurement();
         Assert.assertEquals(quantityMeasurement, quantityMeasurement2);
     }
+
+    /**
+     * Given Two Different Inch Values When Equal Should Return False
+     */
+    @Test
+    public void givenTwoDifferentInchValues_WhenEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.getInch(0.0);
+        double value2 = quantityMeasurement.getInch(1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two Equal Inch Values When Equal Should Return True
+     */
+    @Test
+    public void givenTwoEqualInchValues_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.getInch(1.0);
+        double value2 = quantityMeasurement.getInch(1.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }

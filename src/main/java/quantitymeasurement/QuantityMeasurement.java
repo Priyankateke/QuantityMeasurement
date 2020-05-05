@@ -4,10 +4,20 @@ public class QuantityMeasurement {
     private double feet;
     private double inch;
 
+    /**
+     * Getting Feet
+     * @param inch
+     * @return
+     */
     public double getFeet(Double inch) {
         return inch/12;
     }
 
+    /**
+     * Getting Inch
+     * @param feet
+     * @return
+     */
     public double getInch(Double feet) {
         return feet*12;
     }
