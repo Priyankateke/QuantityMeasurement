@@ -1,25 +1,15 @@
 package quantitymeasurement;
 
 public class QuantityMeasurement {
-    private double feet;
-    private double inch;
 
     /**
-     * Getting Feet
-     * @param inch
+     *
+     * @param units
+     * @param value
      * @return
      */
-    public double getFeet(Double inch) {
-        return inch/12;
-    }
-
-    /**
-     * Getting Inch
-     * @param feet
-     * @return
-     */
-    public double getInch(Double feet) {
-        return feet*12;
+    public double unitConversion(Units units, Double value) {
+        return value*units.unit;
     }
 
     /**
@@ -32,8 +22,6 @@ public class QuantityMeasurement {
         if(o == null) return false;
         if(this == o) return true;
         if (this.getClass() == o.getClass()) return true;
-        QuantityMeasurement that = (QuantityMeasurement) o;
-        return Double.compare(that.feet, feet) == 0 &&
-                Double.compare(that.inch, inch) == 0;
+        return super.equals(o);
     }
 }
