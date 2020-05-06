@@ -493,4 +493,139 @@ public class TestQuantityMeasurement {
         double value2 = quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, 1000.0);
         Assert.assertEquals(2, value1 + value2, 0.0);
     }
+
+    //TestCases for equality check on Kilogram
+
+    /**
+     * given 0 Kilogram And 0 Kilogram Value When Equal Should Return True
+     */
+    @Test
+    public void givenZeroKilogramAndZeroKilogramValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.KILOGRAM, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.KILOGRAM, 0.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two Different Kilogram Values When Not Equal Should Return False
+     */
+    @Test
+    public void  givenTwoDifferentKilogramValues_WhenNotEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.KILOGRAM, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.KILOGRAM, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Null Kilogram Value Should Return False
+     */
+    @Test
+    public void givenNullKilogramValue_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.unitConversion(Units.KILOGRAM, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
+    }
+
+    //TestCases for equality check on Grams
+
+    /**
+     * Given 0 GramAnd 0 Gram Value When Equal Should Return True
+     */
+    @Test
+    public void givenZeroGramAndZeroGramValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.GRAMS_TO_KILOGRAM, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.GRAMS_TO_KILOGRAM, 0.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two Different Gram Values When Not Equal Should Return False
+     */
+    @Test
+    public void givenTwoDifferentGramValues_WhenNotEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.GRAMS_TO_KILOGRAM, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.GRAMS_TO_KILOGRAM, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Null Gram Value Should Return False
+     */
+    @Test
+    public void givenNullGramValue_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.unitConversion(Units.GRAMS_TO_KILOGRAM, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
+    }
+
+    //TestCases for equality check on Tonne
+
+    /**
+     * Given 0 Tonne And 0 Tonne Value When Equal Should Return True
+     */
+    @Test
+    public void givenZeroTonneAndZeroTonneValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.TONNE_TO_KILOGRAM, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.TONNE_TO_KILOGRAM, 0.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two Different Tonne Values When Not Equal Should Return False
+     */
+    @Test
+    public void givenTwoDifferentTonneValues_WhenNotEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.TONNE_TO_KILOGRAM, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.TONNE_TO_KILOGRAM, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Null Tonne Value Should Return False
+     */
+    @Test
+    public void givenNullTonneValue_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.unitConversion(Units.TONNE_TO_KILOGRAM, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
+    }
+
+    //TestCases for equality check on Tonne,Kilogram and gram
+
+    /**
+     * Given One Kilogram And One Thousand Grams When Equal Should Return True
+     */
+    @Test
+    public void givenOneKilogramAndOneThousandGrams_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.KILOGRAM, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.GRAMS_TO_KILOGRAM, 1000.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given One Tonne And One Thousand Kilograms When Equal Should Return True
+     */
+    @Test
+    public void givenOneTonneAndOneThousandKilograms_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.TONNE_TO_KILOGRAM, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.KILOGRAM, 1000.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    //TestCases for addition of weights in different units to litres
+    /**
+     * Given One Tonne And One Thousand Grams When Added Should Return One Thousand One Kilograms
+     */
+    @Test
+    public void givenOneTonneAndOneThousandGrams_WhenAdded_ShouldReturnOneThousandOneKilograms() {
+        double value1 = quantityMeasurement.unitConversion(Units.TONNE_TO_KILOGRAM, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.GRAMS_TO_KILOGRAM, 1000.0);
+        Assert.assertEquals(1001, value1 + value2, 0.0);
+    }
 }
